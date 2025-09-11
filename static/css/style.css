@@ -1,0 +1,92 @@
+/*
+   Noted Shop - Main Stylesheet
+*/
+
+/* Global Styles & Background */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+
+    background: #f4f6f3; /* a light grey-green fallback color */
+    background-image: radial-gradient(at 20% 20%, hsla(55, 80%, 92%, 1) 0px, transparent 50%),
+                      radial-gradient(at 80% 25%, hsla(140, 80%, 90%, 1) 0px, transparent 50%),
+                      radial-gradient(at 75% 75%, hsla(80, 80%, 95%, 1) 0px, transparent 50%),
+                      radial-gradient(at 10% 80%, hsla(160, 80%, 93%, 1) 0px, transparent 50%);
+}
+
+/* Layout Containers */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px;
+}
+
+/* Glass Card Styling */
+.glass-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(100, 100, 150, 0.15);
+    padding: 30px;
+    text-align: center;
+    width: 320px;
+    color: #333;
+}
+
+/* Card Content Styling */
+.glass-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.glass-card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2a2a2a;
+}
+
+.glass-card p {
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.glass-card .price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: block;
+    margin: 20px 0;
+    color: #4a4a4a;
+}
+
+/* Button Styling (minimalistic) */
+.add-to-cart-btn {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid rgba(85, 85, 85, 0.5);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.add-to-cart-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: #555;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
