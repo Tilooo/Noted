@@ -216,3 +216,98 @@ tr.total {
 .btn-secondary:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
+
+/* Header & Navigation Styles */
+.site-header {
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.25); /* slightly less transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2a2a2a;
+    text-decoration: none;
+}
+
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* space between nav items */
+}
+
+.main-nav a {
+    font-size: 1rem;
+    color: #444;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* special styling for the cart link */
+.cart-link a {
+    background-color: rgba(240, 240, 255, 0.6); /* violet-white tint */
+    border: 1px solid rgba(108, 92, 231, 0.3); /* violet border */
+}
+
+.cart-link a:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(108, 92, 231, 0.6);
+}
+
+.cart-link span {
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+/* Footer Styles */
+.site-footer {
+    margin-top: 60px; /* pushes footer down from the content */
+    padding: 30px 40px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #555;
+    text-align: center;
+}
+
+.footer-container p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.remove-link {
+    color: #c0392b;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.remove-link:hover {
+    color: #e74c3c;
+}

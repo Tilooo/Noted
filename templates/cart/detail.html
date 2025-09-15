@@ -11,6 +11,7 @@
         <th>Quantity</th>
         <th>Unit price</th>
         <th>Price</th>
+        <th>Remove</th>
       </tr>
     </thead>
     <tbody>
@@ -26,11 +27,12 @@
             <td>{{ item.quantity }}</td>
             <td class="num">${{ item.price }}</td>
             <td class="num">${{ item.total_price }}</td>
+            <td><a href="{% url 'cart:cart_remove' product.id %}" class="remove-link">×</a></td>
           </tr>
         {% endwith %}
       {% endfor %}
       <tr class="total">
-        <td colspan="4">Total</td>
+        <td colspan="5">Total</td>
         <td class="num">${{ cart.get_total_price }}</td>
       </tr>
     </tbody>

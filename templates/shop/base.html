@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
-    <title>Noted</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noted - Beautiful Paper Notebooks</title>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="main-container">
+
+    <!--     SITE HEADER         -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="{% url 'shop:product_list' %}">Noted</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{% url 'shop:product_list' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="cart-link">
+                        <a href="{% url 'cart:cart_detail' %}">
+                            Cart ({{ cart|length }}) <span>${{ cart.get_total_price|floatformat:2 }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--    MAIN PAGE CONTENT    -->
+    <main class="container">
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
+
+    <!--      SITE FOOTER        -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Noted. All Rights Reserved.</p>
+            <p>Beautiful Notebooks for Inspired Minds</p>
+        </div>
+    </footer>
+
 </body>
 </html>
