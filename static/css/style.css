@@ -140,6 +140,79 @@ body {
 }
 
 .product-card-link {
-    text-decoration: none; /* removes the default blue underline from the link */
-    color: inherit; /* makes the link inherit the text color from its parent */
+    text-decoration: none;
+    color: inherit; /* the link inherit the text color from its parent */
+}
+
+/* Cart Page Styles */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(100, 100, 150, 0.15);
+}
+
+.cart-table thead tr {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #333;
+    text-align: left;
+    font-weight: bold;
+}
+
+.cart-table th, .cart-table td {
+    padding: 12px 15px;
+}
+
+.cart-table tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cart-table tbody tr:last-of-type {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: auto;
+    border-radius: 5px;
+}
+
+tr.total {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.text-right {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.btn-primary, .btn-secondary {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.btn-primary {
+    background-color: #6c5ce7; /* a nice violet color */
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #5849d4;
+}
+.btn-secondary {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid rgba(85, 85, 85, 0.5);
+}
+.btn-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
