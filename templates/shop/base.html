@@ -18,8 +18,10 @@
     <header class="site-header">
         <div class="header-container">
             <div class="logo">
-                <a href="{% url 'shop:product_list' %}">Noted</a>
-            </div>
+                <a href="{% url 'shop:product_list' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="Noted Logo">
+                </a>
+        </div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="{% url 'shop:product_list' %}">Home</a></li>

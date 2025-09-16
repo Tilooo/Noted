@@ -244,6 +244,13 @@ tr.total {
     font-weight: 600;
     color: #2a2a2a;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 120px; /* logo size */
+    width: auto; /* aspect ratio of logo */
 }
 
 .main-nav ul {
