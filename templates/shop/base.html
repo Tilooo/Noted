@@ -11,33 +11,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!--     SITE HEADER         -->
-    <header class="site-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="{% url 'shop:product_list' %}">
-                    <img src="{% static 'images/logo.png' %}" alt="Noted Logo">
-                </a>
-        </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="{% url 'shop:product_list' %}">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li class="cart-link">
-                        <a href="{% url 'cart:cart_detail' %}">
-                            Cart ({{ cart|length }}) <span>${{ cart.get_total_price|floatformat:2 }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- SITE HEADER -->
+<header class="site-header">
+    <div class="header-container">
 
-    <!--    MAIN PAGE CONTENT    -->
+        <!-- The Logo -->
+        <div class="logo">
+            <a href="{% url 'shop:product_list' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Noted Logo">
+                <span class="logo-text">Noted</span>
+            </a>
+        </div>
+
+        <!-- The Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{% url 'shop:product_list' %}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="cart-link">
+                    <a href="{% url 'cart:cart_detail' %}">
+                        Cart ({{ cart|length }}) <span>${{ cart.get_total_price|floatformat:2 }}</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+    <!-- MAIN PAGE CONTENT -->
     <main class="container">
         {% block content %}
         {% endblock %}
