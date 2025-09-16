@@ -326,3 +326,47 @@ tr.total {
 .remove-link:hover {
     color: #e74c3c;
 }
+
+/* Forms & Inputs Styles */
+.add-to-cart-form {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* space between the input and the button */
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgba(85, 85, 85, 0.5);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.quantity-form-cell form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cart-quantity-input {
+    width: 50px;
+    padding: 5px;
+}
+
+.btn-update {
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #555;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-update:hover {
+    background-color: #eee;
+    border-color: #aaa;
+}

@@ -1,3 +1,5 @@
+<!-- templates/cart/detail.html -->
+
 {% extends "shop/base.html" %}
 {% load static %}
 
@@ -15,27 +17,36 @@
       </tr>
     </thead>
     <tbody>
-      {% for item in cart %}
-        {% with product=item.product %}
-          <tr>
-            <td>
-              <a href="{{ product.get_absolute_url }}">
-                <img src="{{ product.image.url }}" class="cart-item-image">
-              </a>
-            </td>
-            <td>{{ product.name }}</td>
-            <td>{{ item.quantity }}</td>
-            <td class="num">${{ item.price }}</td>
-            <td class="num">${{ item.total_price }}</td>
-            <td><a href="{% url 'cart:cart_remove' product.id %}" class="remove-link">×</a></td>
-          </tr>
-        {% endwith %}
-      {% endfor %}
-      <tr class="total">
-        <td colspan="5">Total</td>
-        <td class="num">${{ cart.get_total_price }}</td>
+  {% for item in cart %}
+    {% with product=item.product %}
+      <tr>
+        <td>
+          <a href="{{ product.get_absolute_url }}">
+            <img src="{{ product.image.url }}" class="cart-item-image">
+          </a>
+        </td>
+        <td>{{ product.name }}</td>
+
+        <td class="quantity-form-cell">
+          <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {% csrf_token %}
+            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" class="quantity-input cart-quantity-input">
+            <input type="hidden" name="update" value="true">
+            <button type="submit" class="btn-update">Update</button>
+          </form>
+        </td>
+
+        <td class="num">${{ item.price }}</td>
+        <td class="num">${{ item.total_price }}</td>
+        <td><a href="{% url 'cart:cart_remove' product.id %}" class="remove-link">×</a></td>
       </tr>
-    </tbody>
+    {% endwith %}
+  {% endfor %}
+  <tr class="total">
+    <td colspan="5">Total</td>
+    <td class="num">${{ cart.get_total_price|floatformat:2 }}</td>
+  </tr>
+</tbody>
   </table>
   <p class="text-right">
     <a href="{% url 'shop:product_list' %}" class="btn-secondary">Continue shopping</a>

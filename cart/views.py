@@ -9,7 +9,11 @@ from .cart import Cart
 def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
-    cart.add(product=product, quantity=1)
+    quantity = int(request.POST.get('quantity', 1))
+    update_quantity = request.POST.get('update') == 'true'
+    cart.add(product=product,
+             quantity=quantity,
+             override_quantity=update_quantity)
     return redirect('cart:cart_detail')
 
 def cart_detail(request):
