@@ -1,4 +1,4 @@
-# orders/models.py
+# order/models.py
 
 from django.db import models
 from shop.models import Product
