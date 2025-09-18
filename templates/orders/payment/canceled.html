@@ -1,0 +1,9 @@
+<!-- templates/orders/payment/canceled.html -->
+
+{% extends "shop/base.html" %}
+
+{% block content %}
+  <h1>Payment Canceled</h1>
+  <p>Your payment was not processed. Your cart has been saved, you can try to checkout again from the cart page.</p>
+  <a href="{% url 'cart:cart_detail' %}" class="btn-primary">Back to Cart</a>
+{% endblock %}
