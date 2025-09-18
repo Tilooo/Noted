@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from noted_project.my_settings import SECRET_KEY
+from noted_project.my_settings import SECRET_KEY, STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -134,3 +135,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CART_SESSION_ID = 'cart'
+
+
+STRIPE_PUBLISHABLE_KEY = STRIPE_PUBLISHABLE_KEY
+STRIPE_SECRET_KEY = STRIPE_SECRET_KEY
