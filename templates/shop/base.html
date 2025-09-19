@@ -19,29 +19,43 @@
 <header class="site-header">
     <div class="header-container">
 
-        <!-- The Logo -->
-        <div class="logo">
-            <a href="{% url 'shop:product_list' %}">
-                <img src="{% static 'images/logo.png' %}" alt="Noted Logo">
-                <span class="logo-text">Noted</span>
-            </a>
-        </div>
+    <!-- Column 1: Search Bar (Left) -->
+    <div class="header-left">
+        <form action="#" method="get" class="search-form">
+            <input type="text" name="q" placeholder="Search notebooks..." class="search-input">
+            <button type="submit" class="search-button">
+                <!-- Simple SVG for a magnifying glass icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </form>
+    </div>
 
-        <!-- The Navigation -->
+    <!-- Column 2: Logo (Center) -->
+    <div class="header-center logo">
+        <a href="{% url 'shop:product_list' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Noted Logo">
+            <span class="logo-text">Noted</span>
+        </a>
+    </div>
+
+    <!-- Column 3: Navigation (Right) -->
+    <div class="header-right">
         <nav class="main-nav">
             <ul>
-                <li><a href="{% url 'shop:product_list' %}">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
                 <li class="cart-link">
                     <a href="{% url 'cart:cart_detail' %}">
-                        Cart ({{ cart|length }}) <span>${{ cart.get_total_price|floatformat:2 }}</span>
+                        Cart ({{ cart|length }})
                     </a>
                 </li>
             </ul>
         </nav>
-
     </div>
+
+</div>
 </header>
 
     <!-- MAIN PAGE CONTENT -->
