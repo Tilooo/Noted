@@ -300,21 +300,49 @@ tr.total {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* styling for the cart link */
+/* cart link styling */
 .cart-link a {
-    background-color: rgba(240, 240, 255, 0.6); /* violet-white tint */
-    border: 1px solid rgba(108, 92, 231, 0.3); /* violet border */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #222;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
 }
 
 .cart-link a:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-color: rgba(108, 92, 231, 0.6);
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+.cart-link i,
+.cart-link svg {
+    font-size: 1.1rem;
+    color: #555;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cart-link a:hover i,
+.cart-link a:hover svg {
+    transform: scale(1.2);
+    color: #111;
 }
 
 .cart-link span {
     font-weight: 600;
-    margin-left: 5px;
+    color: #333;
 }
+
 
 /* search form */
 .search-form {
