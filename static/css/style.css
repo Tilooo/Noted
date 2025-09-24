@@ -5,11 +5,11 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background: #f4f6f3;
-    background-image: radial-gradient(at 20% 20%, hsla(55, 80%, 92%, 1) 0px, transparent 50%),
+    background: #fdfdf7;
+    background-image: radial-gradient(at 20% 20%, hsla(85, 80%, 92%, 1) 0px, transparent 50%),
                       radial-gradient(at 80% 25%, hsla(140, 80%, 90%, 1) 0px, transparent 50%),
-                      radial-gradient(at 75% 75%, hsla(80, 80%, 95%, 1) 0px, transparent 50%),
-                      radial-gradient(at 10% 80%, hsla(160, 80%, 93%, 1) 0px, transparent 50%);
+                      radial-gradient(at 75% 75%, hsla(60, 100%, 90%, 1) 0px, transparent 50%),
+                      radial-gradient(at 10% 80%, hsla(100, 90%, 95%, 1) 0px, transparent 50%);
 }
 
 /* Layout Containers */
@@ -34,14 +34,14 @@ body {
     -webkit-backdrop-filter: blur(8px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(100, 100, 150, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(173, 209, 125, 0.25);
     padding: 30px;
     text-align: center;
     width: 320px;
     color: #333;
 }
 
-/* Card Content Styling= */
+/* Card Content Styling */
 .product-card-link {
     text-decoration: none;
     color: inherit;
@@ -70,26 +70,64 @@ body {
     font-weight: 600;
     display: block;
     margin: 20px 0;
-    color: #4a4a4a;
+    color: #2e7d32;
 }
 
+/* Gradient Button Styles */
+.btn-primary,
+.btn-hero,
 .add-to-cart-btn {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 40%, #f9d423 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 18px rgba(46, 204, 113, 0.35);
+    background-size: 200% 200%;
+}
+
+/* Animated Hero Button Shimmer */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-hero {
+    animation: gradient-shift 6s ease infinite;
+}
+
+.btn-primary:hover,
+.btn-hero:hover,
+.add-to-cart-btn:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #27ae60 0%, #a8e063 50%, #ffe259 100%);
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.45);
+}
+
+/* Secondary Button */
+.btn-secondary {
     background-color: transparent;
-    color: #555;
-    border: 1px solid rgba(85, 85, 85, 0.5);
-    padding: 10px 25px;
+    color: #2e7d32;
+    border: 1px solid #81c784;
+    padding: 10px 24px;
     border-radius: 50px;
     font-weight: 400;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
+    display: inline-block;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    cursor: pointer;
 }
 
-.add-to-cart-btn:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-color: #555;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #fffde7, #f1f8e9);
+    border-color: #ffeb3b;
+    color: #795548;
 }
 
 /* Product Detail Page Styles */
@@ -112,7 +150,7 @@ body {
 .detail-image-wrapper img {
     width: 100%;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(100, 100, 150, 0.2);
+    box-shadow: 0 10px 40px rgba(173, 209, 125, 0.3);
 }
 
 .detail-info-wrapper {
@@ -138,6 +176,7 @@ body {
     font-weight: 600;
     display: block;
     margin-bottom: 30px;
+    color: #27ae60;
 }
 
 /* Cart Page Styles */
@@ -149,7 +188,7 @@ body {
     background: rgba(255, 255, 255, 0.45);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 8px 32px 0 rgba(100, 100, 150, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(173, 209, 125, 0.25);
 }
 
 .cart-table thead tr {
@@ -185,32 +224,6 @@ tr.total {
 .text-right {
     text-align: right;
     margin-top: 20px;
-}
-
-.btn-primary, .btn-secondary {
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    font-weight: 400;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-.btn-primary {
-    background-color: #6c5ce7;
-    color: white;
-}
-.btn-primary:hover {
-    background-color: #5849d4;
-}
-.btn-secondary {
-    background-color: transparent;
-    color: #555;
-    border: 1px solid rgba(85, 85, 85, 0.5);
-}
-.btn-secondary:hover {
-    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .remove-link {
@@ -304,24 +317,30 @@ tr.total {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Cart link in header */
 .cart-link a {
-    background-color: rgba(240, 240, 255, 0.6);
-    border: 1px solid rgba(108, 92, 231, 0.3);
+    background: linear-gradient(135deg, #a8e063, #f9d423);
+    border: 1px solid rgba(255, 235, 59, 0.5);
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 3px 12px rgba(255, 235, 59, 0.25);
 }
-
 .cart-link a:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-color: rgba(108, 92, 231, 0.6);
+    background: linear-gradient(135deg, #f9d423, #56ab2f);
+    border-color: rgba(255, 235, 59, 0.7);
+    box-shadow: 0 5px 18px rgba(255, 235, 59, 0.35);
 }
 
+/* Search Form */
 .search-form {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #fffde7, #f1f8e9);
+    border: 1px solid #ffeb3b;
     border-radius: 50px;
     padding: 5px;
     max-width: 250px;
+    box-shadow: 0 2px 8px rgba(255, 235, 59, 0.15);
 }
 
 .search-input {
@@ -331,12 +350,12 @@ tr.total {
     padding: 5px 10px;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
-    color: #333;
+    color: #2e7d32;
     width: 100%;
 }
 
 .search-input::placeholder {
-    color: #777;
+    color: #f9a825;
 }
 
 .search-button {
@@ -349,7 +368,7 @@ tr.total {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #555;
+    color: #fbc02d;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
@@ -381,10 +400,13 @@ tr.total {
     width: 60px;
     padding: 10px;
     text-align: center;
-    border: 1px solid rgba(85, 85, 85, 0.5);
+    border: 1px solid #ffeb3b;
     border-radius: 50px;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
+    background: linear-gradient(135deg, #fffde7, #f1f8e9);
+    color: #2e7d32;
+    box-shadow: 0 2px 8px rgba(255, 235, 59, 0.2);
 }
 
 .quantity-form-cell form {
@@ -396,12 +418,17 @@ tr.total {
 .cart-quantity-input {
     width: 50px;
     padding: 5px;
+    border: 1px solid #ffeb3b;
+    border-radius: 8px;
+    text-align: center;
+    background: #fffde7;
+    color: #2e7d32;
 }
 
 .btn-update {
     background: transparent;
-    border: 1px solid #ccc;
-    color: #555;
+    border: 1px solid #ffeb3b;
+    color: #fbc02d;
     border-radius: 5px;
     padding: 6px 10px;
     font-size: 0.8rem;
@@ -410,25 +437,10 @@ tr.total {
 }
 
 .btn-update:hover {
-    background-color: #eee;
-    border-color: #aaa;
+    background-color: #fff9c4;
+    border-color: #f9a825;
+    color: #795548;
 }
-
-.order-form {
-    max-width: 500px;
-    margin: 20px 0;
-}
-.order-form p {
-    margin-bottom: 10px;
-}
-.order-info {
-    max-width: 500px;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
 
 /* Hero Section Styles */
 .hero {
@@ -458,23 +470,6 @@ tr.total {
     font-weight: 300;
     line-height: 1.8;
     margin-bottom: 30px;
-}
-
-.btn-hero {
-    background-color: #6c5ce7;
-    color: white;
-    text-decoration: none;
-    padding: 15px 35px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    display: inline-block;
-    box-shadow: 0 8px 15px rgba(108, 92, 231, 0.3);
-}
-
-.btn-hero:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 20px rgba(108, 92, 231, 0.4);
 }
 
 .grid-heading {
