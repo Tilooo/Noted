@@ -1,14 +1,11 @@
-/*
-   Noted Shop - Main Stylesheet
-*/
+/*  Noted Shop - Main Stylesheet */
 
 /* Global Styles & Background */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-
-    background: #f4f6f3; /* a light grey-green fallback color */
+    background: #f4f6f3;
     background-image: radial-gradient(at 20% 20%, hsla(55, 80%, 92%, 1) 0px, transparent 50%),
                       radial-gradient(at 80% 25%, hsla(140, 80%, 90%, 1) 0px, transparent 50%),
                       radial-gradient(at 75% 75%, hsla(80, 80%, 95%, 1) 0px, transparent 50%),
@@ -44,7 +41,12 @@ body {
     color: #333;
 }
 
-/* Card Content Styling */
+/* Card Content Styling= */
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .glass-card img {
     max-width: 100%;
     border-radius: 10px;
@@ -71,7 +73,6 @@ body {
     color: #4a4a4a;
 }
 
-/* Button Styling (minimalistic) */
 .add-to-cart-btn {
     background-color: transparent;
     color: #555;
@@ -94,9 +95,9 @@ body {
 /* Product Detail Page Styles */
 .detail-container {
     display: flex;
-    flex-wrap: wrap; /* wrapping on small screens allowed*/
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start; /* items to the top */
+    align-items: flex-start;
     gap: 50px;
     max-width: 1100px;
     margin: 60px auto;
@@ -117,7 +118,7 @@ body {
 .detail-info-wrapper {
     flex: 1;
     min-width: 350px;
-    text-align: left; /* the centered text from the original card overwritten*/
+    text-align: left;
 }
 
 .detail-info-wrapper h1 {
@@ -137,11 +138,6 @@ body {
     font-weight: 600;
     display: block;
     margin-bottom: 30px;
-}
-
-.product-card-link {
-    text-decoration: none;
-    color: inherit; /* the link inherit the text color from its parent */
 }
 
 /* Cart Page Styles */
@@ -202,7 +198,7 @@ tr.total {
 }
 
 .btn-primary {
-    background-color: #6c5ce7; /* a nice violet color */
+    background-color: #6c5ce7;
     color: white;
 }
 .btn-primary:hover {
@@ -217,10 +213,20 @@ tr.total {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+.remove-link {
+    color: #c0392b;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.remove-link:hover {
+    color: #e74c3c;
+}
+
 /* Header & Navigation Styles */
 .site-header {
-    padding: 3px 40px;
-    background: rgba(255, 255, 255, 0.25); /* slightly less transparent */
+    padding: 10px 40px;
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -240,9 +246,8 @@ tr.total {
     width: 100%;
 }
 
-/* the 3 header columns */
 .header-left, .header-right {
-    flex: 1; /* each takes up 1 part of the available space */
+    flex: 1;
 }
 
 .header-center {
@@ -252,22 +257,21 @@ tr.total {
 
 .header-right {
     display: flex;
-    justify-content: flex-end; /* to the far right */
+    justify-content: flex-end;
 }
 
 .logo a {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 3px; /* a space between the logo and the text */
+    gap: 10px;
 }
 
 .logo img {
-    max-height: 60px; /* logo size */
-    width: auto; /* aspect ratio of logo */
+    max-height: 40px;
+    width: auto;
 }
 
-/* Style for the handwriting text */
 .logo-text {
     font-family: 'Dancing Script', cursive;
     font-size: 2.2rem;
@@ -283,7 +287,7 @@ tr.total {
     list-style-type: none;
     display: flex;
     align-items: center;
-    gap: 15px; /* space between nav items */
+    gap: 15px;
 }
 
 .main-nav a {
@@ -300,113 +304,58 @@ tr.total {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* cart link styling */
 .cart-link a {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    color: #222;
-    text-decoration: none;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+    background-color: rgba(240, 240, 255, 0.6);
+    border: 1px solid rgba(108, 92, 231, 0.3);
 }
 
 .cart-link a:hover {
-    background: rgba(255, 255, 255, 0.4);
-    border-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(108, 92, 231, 0.6);
 }
 
-.cart-link i,
-.cart-link svg {
-    font-size: 1.1rem;
-    color: #555;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.cart-link a:hover i,
-.cart-link a:hover svg {
-    transform: scale(1.2);
-    color: #111;
-}
-
-.cart-link span {
-    font-weight: 600;
-    color: #333;
-}
-
-
-/* search form */
 .search-form {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50px;
-    padding: 6px 10px;
-    max-width: 280px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+    padding: 5px;
+    max-width: 250px;
 }
 
-.search-form:focus-within {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-/* input field */
 .search-input {
     border: none;
     background: transparent;
     outline: none;
-    padding: 8px 12px;
+    padding: 5px 10px;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    color: #222;
+    font-size: 0.9rem;
+    color: #333;
     width: 100%;
-    transition: color 0.3s ease;
 }
 
 .search-input::placeholder {
-    color: #888;
-    font-style: italic;
+    color: #777;
 }
 
-/* button */
 .search-button {
-    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    background: white;
     border: none;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     color: #555;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
-
-.search-button:hover {
-    background: linear-gradient(135deg, #f9f9f9, #e6e6e6);
-    color: #000;
-    transform: scale(1.1);
-}
-
 
 /* Footer Styles */
 .site-footer {
-    margin-top: 60px; /* pushes footer down from the content */
+    margin-top: 60px;
     padding: 30px 40px;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(5px);
@@ -421,21 +370,11 @@ tr.total {
     font-size: 0.9rem;
 }
 
-.remove-link {
-    color: #c0392b;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-.remove-link:hover {
-    color: #e74c3c;
-}
-
 /* Forms & Inputs Styles */
 .add-to-cart-form {
     display: flex;
     align-items: center;
-    gap: 15px; /* space between the input and the button */
+    gap: 15px;
 }
 
 .quantity-input {
@@ -473,4 +412,75 @@ tr.total {
 .btn-update:hover {
     background-color: #eee;
     border-color: #aaa;
+}
+
+.order-form {
+    max-width: 500px;
+    margin: 20px 0;
+}
+.order-form p {
+    margin-bottom: 10px;
+}
+.order-info {
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+
+/* Hero Section Styles */
+.hero {
+    padding: 100px 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #2a2a2a;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.btn-hero {
+    background-color: #6c5ce7;
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 8px 15px rgba(108, 92, 231, 0.3);
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(108, 92, 231, 0.4);
+}
+
+.grid-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 40px;
 }

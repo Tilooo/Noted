@@ -1,40 +1,32 @@
-{% extends 'shop/base.html' %}
-{% load static %}
+{% extends "shop/base.html" %}
+
+{% block hero %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Where Thoughts Find Their Page</h1>
+        <p>Discover our curated collection of artisanal paper notebooks, designed for writers, dreamers, and creators.</p>
+        <a href="#product-grid-heading" class="btn-hero">Explore Collection</a>
+    </div>
+</section>
+{% endblock hero %}
+
 
 {% block content %}
+    <h2 id="product-grid-heading" class="grid-heading">Our Products</h2>
     <div class="product-grid">
         {% for product in products %}
-<!-- the card wrapped in a link tag -->
-<a href="{% url 'shop:product_detail' product.pk %}" class="product-card-link">
-    <div class="glass-card">
-        <div class="card-image">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        </div>
-        <div class="card-content">
-            <h2>{{ product.name }}</h2>
-            <p>{{ product.description }}</p>
-            <span class="price">${{ product.price }}</span>
-            <!-- the button is now just for show, the whole card is the link -->
-            <div class="add-to-cart-btn">View Details</div>
-        </div>
-    </div>
-</a>
-{% endfor %}
-
-        <!-- first card -->
-        <div class="glass-card">
-            <div class="card-image">
-                <img src="https://via.placeholder.com/300x200" alt="Notebook">
+        <a href="{{ product.get_absolute_url }}" class="product-card-link">
+            <div class="glass-card">
+                <div class="card-image">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+                <div class="card-content">
+                    <h2>{{ product.name }}</h2>
+                    <span class="price">${{ product.price }}</span>
+                    <div class="add-to-cart-btn">View Details</div>
+                </div>
             </div>
-            <div class="card-content">
-                <h2>Classic Lined Notebook</h2>
-                <p>A beautiful and simple notebook for your daily thoughts.</p>
-                <span class="price">$15.00</span>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- more cards here later -->
-
+        </a>
+        {% endfor %}
     </div>
 {% endblock %}

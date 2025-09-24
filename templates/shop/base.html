@@ -61,13 +61,17 @@
     </div>
 </header>
 
-    <!-- MAIN PAGE CONTENT -->
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
+{% block hero %}
+<!-- the hero section from the homepage here -->
+{% endblock hero %}
 
-    <!--      SITE FOOTER        -->
+<!-- Main page content -->
+<main class="container">
+    {% block content %}
+    {% endblock %}
+</main>
+
+    <!-- Site Footer -->
     <footer class="site-footer">
         <div class="footer-container">
             <p>&copy; 2025 Noted. All Rights Reserved.</p>
