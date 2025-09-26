@@ -458,7 +458,7 @@ tr.total {
     background-position: center center; /* the image centered */
 }
 
-/* the dark overlay */
+/* Frosted light glass overlay */
 .hero::before {
     content: '';
     position: absolute;
@@ -466,7 +466,11 @@ tr.total {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* a semi-transparent black */
+
+    background-color: rgba(255, 255, 255, 0.1); /* a semi-transparent white */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* for Safari browser support */
+
     z-index: 1;
 }
 
@@ -484,7 +488,7 @@ tr.total {
     color: #FFFFFF; /* white */
     margin: 0 0 25px 0;
     line-height: 1.3;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* shadow for dark backgrounds */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 7.9);
 }
 
 .hero p {
