@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # products in the database.
 class Product(models.Model):
@@ -9,3 +10,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        # returns the canonical URL for a single product.
+        return reverse('shop:product_detail', args=[str(self.id)])
