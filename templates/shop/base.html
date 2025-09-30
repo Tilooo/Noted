@@ -47,11 +47,10 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="{% url 'shop:product_list' %}">Products</a></li>
-
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                     <li class="cart-link">
-                        <a href="{% url 'cart:cart_detail' %}">
+                        <a href="{% url 'cart:cart_detail' %}" data-open-cart>
                             Cart ({{ cart|length }})
                         </a>
                     </li>
@@ -63,7 +62,7 @@
 </header>
 
 {% block hero %}
-<!-- the hero section from the homepage here -->
+<!-- the hero section from the homepage -->
 {% endblock hero %}
 
 <!-- Main page content -->
@@ -79,6 +78,99 @@
             <p>Beautiful Notebooks for Inspired Minds</p>
         </div>
     </footer>
+
+<!-- Slide out cart modal-->
+<div id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-overlay" data-close-cart></div>
+    <div class="cart-drawer-content">
+
+        <!-- Cart Header -->
+        <div class="cart-drawer-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart-btn" data-close-cart>&times;</button>
+        </div>
+
+        <!-- Cart Body (where items listed) -->
+        <div class="cart-drawer-body">
+            {% if cart|length > 0 %}
+                <ul class="cart-drawer-list">
+                {% for item in cart %}
+                    <li class="cart-drawer-item">
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="item-image">
+                        <div class="item-details">
+                            <span class="item-name">{{ item.product.name }}</span>
+                            <span class="item-price">{{ item.quantity }} x ${{ item.price|floatformat:2 }}</span>
+                        </div>
+                        <a href="{% url 'cart:cart_remove' item.product.id %}" class="item-remove">&times;</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p class="empty-cart-message">Your cart is empty.</p>
+            {% endif %}
+        </div>
+
+        <!-- Cart Footer -->
+        {% if cart|length > 0 %}
+        <div class="cart-drawer-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span>${{ cart.get_total_price|floatformat:2 }}</span>
+            </div>
+            <a href="{% url 'cart:cart_detail' %}" class="btn-secondary view-cart-btn">View Full Cart</a>
+            <a href="{% url 'orders:order_create' %}" class="btn-primary checkout-btn-drawer">Proceed to Checkout</a>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+
+<!-- Javascript for cart drawer -->
+<script>
+  // Wait until the entire HTML document is loaded and ready
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // Find the main cart drawer element
+    const cartDrawer = document.getElementById('cart-drawer');
+
+    // Find all buttons that should OPEN the cart
+    const openCartButtons = document.querySelectorAll('[data-open-cart]');
+
+    // Find all elements that should CLOSE the cart
+    const closeCartElements = document.querySelectorAll('[data-close-cart]');
+
+    // Function to open the cart
+    const openCart = () => {
+      if (cartDrawer) { // Check if the drawer exists before trying to open it
+        cartDrawer.classList.add('is-open');
+      }
+    };
+
+    // Function to close the cart
+    const closeCart = () => {
+      if (cartDrawer) { // Check if the drawer exists
+        cartDrawer.classList.remove('is-open');
+      }
+    };
+
+    // Attach event listeners to all OPEN buttons
+    openCartButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault(); // Stop the link from navigating away
+        openCart();
+      });
+    });
+
+    // Attach event listeners to all CLOSE elements
+    closeCartElements.forEach(element => {
+      element.addEventListener('click', () => {
+        closeCart();
+      });
+    });
+
+  });
+</script>
 
 </body>
 </html>
