@@ -14,20 +14,37 @@
 
 {% block content %}
     <h2 id="product-grid-heading" class="grid-heading">Our Products</h2>
-    <div class="product-grid">
-        {% for product in products %}
-        <a href="{{ product.get_absolute_url }}" class="product-card-link">
-            <div class="glass-card">
-                <div class="card-image">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                </div>
-                <div class="card-content">
-                    <h2>{{ product.name }}</h2>
-                    <span class="price">${{ product.price }}</span>
-                    <div class="add-to-cart-btn">View Details</div>
-                </div>
+
+    <!-- Slider main container -->
+    <div class="swiper-container product-carousel">
+        <div class="swiper-wrapper">
+
+            <!-- Slides -->
+            {% for product in products %}
+            <div class="swiper-slide">
+                <!-- existing product card -->
+                <a href="{{ product.get_absolute_url }}" class="product-card-link">
+                    <div class="glass-card">
+                        <div class="card-image">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="card-content">
+                            <h2>{{ product.name }}</h2>
+                            <span class="price">${{ product.price }}</span>
+                            <div class="add-to-cart-btn">View Details</div>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
-        {% endfor %}
+            {% endfor %}
+
+        </div>
+        <!-- pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
+
 {% endblock %}

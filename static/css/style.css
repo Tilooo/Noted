@@ -14,22 +14,12 @@ body {
 
 /* Layout Containers */
 .container {
-    /* max-width: 1000px; */
-    margin: 40px 0; /* top/bottom margin */
-    padding: 0 20px; /* left/right padding */
-}
-
-/* Product Grid Layout */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
     max-width: 1200px;
-    margin: 0 auto;    /* centers the entire grid on the page */
-    padding: 20px 0;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-/* Glass Card Styling */
+/* Glass Card Styling (for carousel and elsewhere) */
 .glass-card {
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(12px) saturate(150%);
@@ -41,7 +31,7 @@ body {
     padding: 20px;
     text-align: center;
     width: 100%;
-    max-width: 200px;
+    max-width: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -61,8 +51,6 @@ body {
     text-decoration: none;
     color: inherit;
 }
-
-/* Card Image */
 .glass-card img {
     width: 100%;
     border-radius: 14px;
@@ -73,23 +61,16 @@ body {
 .glass-card:hover img {
     transform: scale(1.05);
 }
-
-/* Title */
 .glass-card h2 {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
     color: #174004;
 }
-
-
-/* Description */
 .glass-card p {
     font-weight: 100;
     line-height: 1.6;
 }
-
-/* Price */
 .glass-card .price {
     font-size: 1.05rem;
     font-weight: 600;
@@ -302,7 +283,7 @@ tr.total {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
 }
 
 .logo img {
@@ -675,4 +656,53 @@ tr.total {
 
 .view-cart-btn {
     margin-bottom: 10px;
+}
+
+/* Swiper Carousel Styles */
+
+.product-carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.product-carousel {
+    width: 100%;
+    padding-bottom: 50px; /* pagination location */
+    position: relative; /* contains the pagination dots */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    padding: 10px; /* around the card */
+}
+
+/* Navigation Arrows */
+.swiper-button-next, .swiper-button-prev {
+    color: #2e7d32;
+    transition: all 0.2s ease;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    transform: scale(1.1);
+}
+
+/* Pagination Dots */
+.swiper-pagination {
+    bottom: 10px !important;
+}
+
+.swiper-pagination-bullet {
+    background-color: rgba(46, 125, 50, 0.5);
+    width: 10px; /* dots size */
+    height: 10px;
+    transition: all 0.2s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #2e7d32;
+    transform: scale(1.2); /* the active dot pop */
 }

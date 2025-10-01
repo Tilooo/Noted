@@ -8,13 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noted - Beautiful Paper Notebooks</title>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
 
@@ -126,47 +128,58 @@
 </div>
 
 
-<!-- Javascript for cart drawer -->
+<!-- Javascript libraries -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Javascript Custom -->
 <script>
   // Wait until the entire HTML document is loaded and ready
   document.addEventListener('DOMContentLoaded', function () {
 
-    // Find the main cart drawer element
+    // --- Logic for the Cart Drawer ---
     const cartDrawer = document.getElementById('cart-drawer');
-
-    // Find all buttons that should OPEN the cart
     const openCartButtons = document.querySelectorAll('[data-open-cart]');
-
-    // Find all elements that should CLOSE the cart
     const closeCartElements = document.querySelectorAll('[data-close-cart]');
 
-    // Function to open the cart
     const openCart = () => {
-      if (cartDrawer) { // Check if the drawer exists before trying to open it
-        cartDrawer.classList.add('is-open');
-      }
+      if (cartDrawer) { cartDrawer.classList.add('is-open'); }
     };
-
-    // Function to close the cart
     const closeCart = () => {
-      if (cartDrawer) { // Check if the drawer exists
-        cartDrawer.classList.remove('is-open');
-      }
+      if (cartDrawer) { cartDrawer.classList.remove('is-open'); }
     };
 
-    // Attach event listeners to all OPEN buttons
     openCartButtons.forEach(button => {
       button.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop the link from navigating away
+        e.preventDefault();
         openCart();
       });
     });
 
-    // Attach event listeners to all CLOSE elements
     closeCartElements.forEach(element => {
       element.addEventListener('click', () => {
         closeCart();
       });
+    });
+
+
+    // --- Logic for the Swiper Product Carousel ---
+    const productCarousel = new Swiper('.product-carousel', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 30 },
+            1024: { slidesPerView: 4, spaceBetween: 40 }
+        }
     });
 
   });
