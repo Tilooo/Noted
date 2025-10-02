@@ -163,24 +163,31 @@
 
 
     // --- Logic for the Swiper Product Carousel ---
-    const productCarousel = new Swiper('.product-carousel', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            768: { slidesPerView: 3, spaceBetween: 30 },
-            1024: { slidesPerView: 4, spaceBetween: 40 }
-        }
-    });
+const productCarousel = new Swiper('.product-carousel', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+
+    autoplay: {
+        delay: 3000, // (3 seconds)
+        disableOnInteraction: false, // Continue autoplay after user interacts
+        pauseOnMouseEnter: true, // Pause the slider when the mouse is over it
+    },
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        768: { slidesPerView: 3, spaceBetween: 30 },
+        1024: { slidesPerView: 4, spaceBetween: 40 }
+    }
+});
 
   });
 </script>
