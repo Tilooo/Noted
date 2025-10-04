@@ -26,7 +26,7 @@
 
         <!-- Column 1: Search Bar (Left) -->
         <div class="header-left">
-            <form action="#" method="get" class="search-form">
+            <form action="{% url 'shop:product_search' %}" method="get" class="search-form">
                 <input type="text" name="q" placeholder="Search notebooks..." class="search-input">
                 <button type="submit" class="search-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

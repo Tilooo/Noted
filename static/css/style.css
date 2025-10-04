@@ -911,3 +911,28 @@ tr.total {
     background-color: #2e7d32;
     transform: scale(1.2); /* the active dot pop */
 }
+
+/* Search Results Page Styles */
+
+.search-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-header h1 {
+    font-size: 2.5rem;
+    color: #174004;
+    margin-bottom: 10px;
+}
+
+.search-header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.no-results {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+    padding: 40px 0;
+}

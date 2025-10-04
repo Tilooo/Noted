@@ -1,0 +1,36 @@
+<!-- templates/shop/search_results.html -->
+
+{% extends "shop/base.html" %}
+
+{% block content %}
+  <div class="search-header">
+    {% if query %}
+        <h1>Search Results for: "{{ query }}"</h1>
+        <p>{{ results.count }} product{{ results.count|pluralize }} found.</p>
+    {% else %}
+        <h1>Please enter a search term.</h1>
+    {% endif %}
+  </div>
+
+  {% if results %}
+    <div class="product-grid">
+        {% for product in results %}
+            <a href="{{ product.get_absolute_url }}" class="product-card-link">
+                <div class="glass-card">
+                    <div class="card-image">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    </div>
+                    <div class="card-content">
+                        <h2>{{ product.name }}</h2>
+                        <span class="price">${{ product.price }}</span>
+                        <div class="add-to-cart-btn">View Details</div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+  {% elif query %}
+    <p class="no-results">Sorry, no products matched your search. Please try a different term.</p>
+  {% endif %}
+
+{% endblock %}
