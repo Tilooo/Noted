@@ -13,18 +13,18 @@
   </div>
 
   {% if results %}
-    <div class="product-grid">
+    <div class="search-results-list">
         {% for product in results %}
-            <a href="{{ product.get_absolute_url }}" class="product-card-link">
-                <div class="glass-card">
-                    <div class="card-image">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                    </div>
-                    <div class="card-content">
-                        <h2>{{ product.name }}</h2>
-                        <span class="price">${{ product.price }}</span>
-                        <div class="add-to-cart-btn">View Details</div>
-                    </div>
+            <a href="{{ product.get_absolute_url }}" class="search-result-item glass-card">
+                <!-- Image Wrapper -->
+                <div class="result-image">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+                <!-- Details Wrapper -->
+                <div class="result-details">
+                    <h2 class="result-title">{{ product.name }}</h2>
+                    <p class="result-description">{{ product.description|truncatewords:20 }}</p>
+                    <span class="result-price">${{ product.price }}</span>
                 </div>
             </a>
         {% endfor %}
