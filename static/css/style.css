@@ -995,3 +995,62 @@ tr.total {
     color: #2e7d32;
     margin-top: auto; /* pushes the price to the bottom */
 }
+
+/* Category Showcase Section Styles */
+
+.category-showcase {
+    margin-top: 80px;
+    padding: 20px 0;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    position: relative;
+    display: block;
+    border-radius: 20px;
+    overflow: hidden; /* clips the image to the rounded corners */
+    box-shadow: 0 10px 28px rgba(173, 209, 125, 0.25);
+    transition: all 0.3s ease;
+    height: 250px; /* fixed height for the cards */
+}
+
+.category-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 14px 36px rgba(173, 209, 125, 0.4);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* the image fill the card without distortion */
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.1); /* zoom effect on hover */
+}
+
+.category-name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent); /* dark gradient from the bottom */
+    text-align: center;
+}
+
+.category-name-overlay h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}

@@ -1,5 +1,8 @@
 {% extends "shop/base.html" %}
 
+{% comment %}
+This block defines the beautiful hero section for the homepage.
+{% endcomment %}
 {% block hero %}
 <section class="hero">
     <div class="hero-content">
@@ -11,40 +14,66 @@
 {% endblock hero %}
 
 
-
+{% comment %}
+This block contains all the main content for the homepage:
+1. The Product Carousel
+2. The "Shop by Category" section
+{% endcomment %}
 {% block content %}
+
+    <!--Products Carousel -->
+    <!-- ======================= -->
     <h2 id="product-grid-heading" class="grid-heading">Our Products</h2>
-
-    <!-- Slider main container -->
-    <div class="swiper-container product-carousel">
-        <div class="swiper-wrapper">
-
-            <!-- Slides -->
-            {% for product in products %}
-            <div class="swiper-slide">
-                <!-- existing product card -->
-                <a href="{{ product.get_absolute_url }}" class="product-card-link">
-                    <div class="glass-card">
-                        <div class="card-image">
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <div class="product-carousel-container">
+        <!-- Slider main container -->
+        <div class="swiper-container product-carousel">
+            <div class="swiper-wrapper">
+                <!-- Slides are generated here -->
+                {% for product in products %}
+                <div class="swiper-slide">
+                    <a href="{{ product.get_absolute_url }}" class="product-card-link">
+                        <div class="glass-card">
+                            <div class="card-image">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </div>
+                            <div class="card-content">
+                                <h2>{{ product.name }}</h2>
+                                <span class="price">${{ product.price }}</span>
+                                <div class="add-to-cart-btn">View Details</div>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <h2>{{ product.name }}</h2>
-                            <span class="price">${{ product.price }}</span>
-                            <div class="add-to-cart-btn">View Details</div>
-                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+
+    <!-- Shop by Category -->
+    <section class="category-showcase">
+        <h2 class="grid-heading">Shop by Category</h2>
+        <div class="category-grid">
+            {% for category in categories %}
+                <a href="{{ category.get_absolute_url }}" class="category-card">
+
+                    {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    {% else %}
+                        <div class="category-placeholder-image"></div>
+                    {% endif %}
+
+                    <div class="category-name-overlay">
+                        <h3>{{ category.name }}</h3>
                     </div>
                 </a>
-            </div>
             {% endfor %}
-
         </div>
-        <!-- pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
+    </section>
 
 {% endblock %}
