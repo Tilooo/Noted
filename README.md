@@ -4,7 +4,8 @@
 
 This project was a journey in learning and implementing a full-stack web application, focusing on clean design, a great user experience, and robust back-end functionality.
 
-![Screenshot of the Noted Homepage](![img_1.png](img_1.png))
+<img width="1348" height="605" alt="Screenshot (8758)" src="https://github.com/user-attachments/assets/72b46f58-96f5-4b12-90ec-dc745f5339e9" />
+
 
 
 ---
