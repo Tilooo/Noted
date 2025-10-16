@@ -1069,3 +1069,98 @@ tr.total {
     color: #ffe89a;
 }
 
+/* Thank You Page Styles */
+
+.thank-you-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 60vh; /* it takes up a vertical space */
+}
+
+.thank-you-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    color: white; /* text color */
+    position: relative;
+    overflow: hidden; /* important for the pseudo-element overlay */
+    box-shadow: 0 15px 40px rgba(173, 209, 125, 0.35);
+    background-image: url('https://images.unsplash.com/photo-1559523163-532a4f0499f3?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+
+    animation: fadeInScaleUp 0.8s ease-out forwards;  /* animation for appearing */
+}
+
+.thank-you-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.7), rgba(23, 64, 4, 0.85));  /* semi-transparent green */
+    z-index: 1;
+}
+
+.thank-you-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.thank-you-icon {
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #27ae60;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.thank-you-card h1.tagline {
+    font-size: 4rem;
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* stronger shadow for readability */
+    margin-bottom: 20px;
+}
+
+.thank-you-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.thank-you-card .order-number {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.thank-you-card .btn-primary {
+    margin-top: 20px;
+}
+
+/* Keyframes for the card's entrance animation */
+@keyframes fadeInScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+

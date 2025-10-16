@@ -1,8 +1,15 @@
-<!-- templates/orders/payment/success.html -->
+<!-- templates/orders/payment/success.html  Thank You card page -->
 
 {% extends "shop/base.html" %}
 
 {% block content %}
-  <h1>Payment Successful!</h1>
-  <p>Thank you for your purchase. Your order is being processed.</p>
+<div class="thank-you-container">
+  <div class="thank-you-card">
+    <div class="thank-you-icon">✓</div>
+    <h1 class="tagline">Thank You!</h1>
+    <p>Your order has been successfully placed and is now being prepared with love and care.</p>
+    <p class="order-number">Your order number is: <strong>{{ order.id }}</strong></p>
+    <a href="/" class="btn-primary">Continue Shopping</a>
+  </div>
+</div>
 {% endblock %}
