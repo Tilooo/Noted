@@ -1,10 +1,11 @@
 <!-- templates/orders/payment/success.html  Thank You card page -->
 
 {% extends "shop/base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="thank-you-container">
-  <div class="thank-you-card">
+  <div class="thank-you-card" style="background-image: url('{% static 'images/thankyou.png' %}')">
     <div class="thank-you-icon">✓</div>
     <h1 class="tagline">Thank You!</h1>
     <p>Your order has been successfully placed and is now being prepared with love and care.</p>

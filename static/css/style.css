@@ -1089,9 +1089,6 @@ tr.total {
     position: relative;
     overflow: hidden; /* important for the pseudo-element overlay */
     box-shadow: 0 15px 40px rgba(173, 209, 125, 0.35);
-    background-image: url('https://images.unsplash.com/photo-1559523163-532a4f0499f3?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
 
     animation: fadeInScaleUp 0.8s ease-out forwards;  /* animation for appearing */
 }
